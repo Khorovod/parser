@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace parser.Core.Shazoo
 {
-    class ShazooParser : IParser<List<string>>
+    class ShazooParser : IParser<string[]>
     {
-        List<string> IParser<List<string>>.Parse(IHtmlDocument document) => document.QuerySelectorAll(".entryTitle a").Select(x => x.TextContent).ToList();
+        string[] IParser<string[]>.Parse(IHtmlDocument document) => document.QuerySelectorAll(".entryTitle a").Select(x => x.TextContent).ToArray();
     }
 }
