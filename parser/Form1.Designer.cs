@@ -29,27 +29,16 @@ namespace parser
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.startPg = new System.Windows.Forms.NumericUpDown();
             this.endPg = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Button();
             this.endButton = new System.Windows.Forms.Button();
+            this.ListBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.startPg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.endPg)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(12, 9);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1057, 706);
-            this.textBox1.TabIndex = 0;
             // 
             // label3
             // 
@@ -119,17 +108,29 @@ namespace parser
             this.endButton.UseVisualStyleBackColor = true;
             this.endButton.Click += new System.EventHandler(this.endButton_Click);
             // 
+            // ListBox
+            // 
+            this.ListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ListBox.FormattingEnabled = true;
+            this.ListBox.Location = new System.Drawing.Point(13, 9);
+            this.ListBox.Name = "ListBox";
+            this.ListBox.Size = new System.Drawing.Size(1061, 706);
+            this.ListBox.TabIndex = 7;
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1229, 730);
+            this.Controls.Add(this.ListBox);
             this.Controls.Add(this.endButton);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.endPg);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.startPg);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
             this.Name = "Form1";
+            this.Text = "Shazoo";
             ((System.ComponentModel.ISupportInitialize)(this.startPg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.endPg)).EndInit();
             this.ResumeLayout(false);
@@ -146,13 +147,13 @@ namespace parser
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button stopBtn;
         private System.Windows.Forms.Button startBtn;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown startPg;
         private System.Windows.Forms.NumericUpDown endPg;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button endButton;
+        private System.Windows.Forms.ListBox ListBox;
     }
 }
 

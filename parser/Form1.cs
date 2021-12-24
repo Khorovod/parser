@@ -24,10 +24,7 @@ namespace parser
 
         private void _parserWorker_OnNewData(object arg1, string[] arg2)
         {
-            foreach (var item in arg2)
-            {
-                textBox1.Text += item;
-            }
+            ListBox.Items.AddRange(arg2);
         }
 
         private void startButton_Click(object sender, EventArgs e)
