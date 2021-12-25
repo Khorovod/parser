@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace parser.Core
 {
@@ -14,10 +15,10 @@ namespace parser.Core
             _url = settings.BaseUrl + settings.PostFix;
         }
 
-        public async Task<string> GetPageSourseByPageId(int id)
+        public async Task<string> GetPageSourseByPageId(int id, CancellationToken token)
         {
             string res = null;
-            var pg = await _client.GetAsync(_url + id.ToString());
+            var pg = await _client.GetAsync(_url + id.ToString(), token);
             if(pg != null && pg.StatusCode == HttpStatusCode.OK)
             {
                 res = await pg.Content.ReadAsStringAsync();

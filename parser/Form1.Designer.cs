@@ -36,6 +36,7 @@ namespace parser
             this.startButton = new System.Windows.Forms.Button();
             this.endButton = new System.Windows.Forms.Button();
             this.ListBox = new System.Windows.Forms.ListBox();
+            this.clearBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.startPg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.endPg)).BeginInit();
             this.SuspendLayout();
@@ -89,7 +90,7 @@ namespace parser
             // startButton
             // 
             this.startButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.startButton.Location = new System.Drawing.Point(1097, 597);
+            this.startButton.Location = new System.Drawing.Point(1097, 150);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(120, 56);
             this.startButton.TabIndex = 5;
@@ -100,7 +101,7 @@ namespace parser
             // endButton
             // 
             this.endButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.endButton.Location = new System.Drawing.Point(1097, 659);
+            this.endButton.Location = new System.Drawing.Point(1097, 212);
             this.endButton.Name = "endButton";
             this.endButton.Size = new System.Drawing.Size(120, 56);
             this.endButton.TabIndex = 6;
@@ -113,15 +114,32 @@ namespace parser
             this.ListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ListBox.FormattingEnabled = true;
+            this.ListBox.ItemHeight = 20;
+            this.ListBox.Items.AddRange(new object[] {
+            "Тут всё и будет"});
             this.ListBox.Location = new System.Drawing.Point(13, 9);
             this.ListBox.Name = "ListBox";
-            this.ListBox.Size = new System.Drawing.Size(1061, 706);
+            this.ListBox.Size = new System.Drawing.Size(1061, 704);
             this.ListBox.TabIndex = 7;
+            // 
+            // clearBtn
+            // 
+            this.clearBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.clearBtn.Location = new System.Drawing.Point(1097, 274);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(120, 56);
+            this.clearBtn.TabIndex = 8;
+            this.clearBtn.Text = "Clear";
+            this.clearBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1229, 730);
+            this.Controls.Add(this.clearBtn);
             this.Controls.Add(this.ListBox);
             this.Controls.Add(this.endButton);
             this.Controls.Add(this.startButton);
@@ -129,6 +147,7 @@ namespace parser
             this.Controls.Add(this.label4);
             this.Controls.Add(this.startPg);
             this.Controls.Add(this.label3);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "Form1";
             this.Text = "Shazoo";
             ((System.ComponentModel.ISupportInitialize)(this.startPg)).EndInit();
@@ -154,6 +173,7 @@ namespace parser
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button endButton;
         private System.Windows.Forms.ListBox ListBox;
+        private System.Windows.Forms.Button clearBtn;
     }
 }
 

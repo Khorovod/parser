@@ -10,7 +10,6 @@ namespace parser.Core
         public event Action<object> OnCompletion;
         IParserSettings settings;
         private HtmlLoader loader;
-        bool isActive;
 
         public ParserWorker(IParser<T> parser)
         {
@@ -32,29 +31,29 @@ namespace parser.Core
             }
         }
 
-        public void Start()
+        public void Start(CancellationToken token)
         {
-            CancellationTokenSource source = new CancellationTokenSource();
-            var token = source.Token;
-            isActive = true;
-            Work();
-        }
-        public void Stop()
-        {
-            isActive = false;
+            Work(token);
         }
 
-        async void Work()
+        async void Work(CancellationToken token)
         {
             for(int i = Settings.Start; i <= Settings.End; i++)
             {
-                if (!isActive)
+                if (token.IsCancellationRequested)
                 {
                     OnCompletion?.Invoke(this);
                     return;
                 }
-
-                var sourse = await loader.GetPageSourseByPageId(i);
+                string sourse = null;
+                try
+                {
+                    sourse = await loader.GetPageSourseByPageId(i, token);
+                }
+                catch(OperationCanceledException ex)
+                {
+                    OnCompletion?.Invoke(ex.Message);
+                }
                 var domParser = new HtmlParser();
                 var doc = await domParser.ParseDocumentAsync(sourse);
 
@@ -62,7 +61,6 @@ namespace parser.Core
                 OnNewData?.Invoke(this, res);
             }
             OnCompletion?.Invoke(this);
-            isActive = false;
         }
     }
 }
