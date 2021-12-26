@@ -39,15 +39,17 @@ namespace parser
 
         private void startButton_Click(object sender, EventArgs e)
         {
+            _source?.Dispose();
             _source = new CancellationTokenSource();
+            var token = _source.Token;
+
             _parserWorker.Settings = new ShazooSettings((int)startPg.Value, (int)endPg.Value);
-            _parserWorker.Start(_source.Token);
+            _parserWorker.Start(token);
         }
 
         private void endButton_Click(object sender, EventArgs e)
         {
             _source?.Cancel();
-            _source?.Dispose();
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
