@@ -42,23 +42,22 @@ namespace parser.Core
             {
                 if (token.IsCancellationRequested)
                 {
-                    OnCompletion?.Invoke(this);
                     return;
                 }
-                string sourse = null;
                 try
                 {
-                    sourse = await loader.GetPageSourseByPageId(i, token);
-                }
-                catch(OperationCanceledException ex)
-                {
-                    OnCompletion?.Invoke(ex.Message);
-                }
-                var domParser = new HtmlParser();
-                var doc = await domParser.ParseDocumentAsync(sourse);
+                    var sourse = await loader.GetPageSourseByPageId(i, token);
+                    var domParser = new HtmlParser();
+                    var doc = await domParser.ParseDocumentAsync(sourse);
 
-                var res = Parser.Parse(doc);
-                OnNewData?.Invoke(this, res);
+                    var res = Parser.Parse(doc);
+                    OnNewData?.Invoke(this, res);
+                }
+                catch(OperationCanceledException)
+                {
+                    OnCompletion?.Invoke(this);
+                }
+
             }
             OnCompletion?.Invoke(this);
         }

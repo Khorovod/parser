@@ -46,7 +46,8 @@ namespace parser
 
         private void endButton_Click(object sender, EventArgs e)
         {
-            _source.Cancel();
+            _source?.Cancel();
+            _source?.Dispose();
         }
 
         private void clearBtn_Click(object sender, EventArgs e)

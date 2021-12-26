@@ -19,7 +19,7 @@ namespace parser.Core
         {
             string res = null;
             var pg = await _client.GetAsync(_url + id.ToString(), token);
-            if(pg != null && pg.StatusCode == HttpStatusCode.OK)
+            if (pg != null && pg.StatusCode == HttpStatusCode.OK)
             {
                 res = await pg.Content.ReadAsStringAsync();
             }
